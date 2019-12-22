@@ -8,6 +8,9 @@
     - pip install Pillow
   - re安装
     - pip install re
+- 建立数据库
+  - 数据库名：travel
+  - setting中可自行修改数据库名称，用户名及密码
 - 运行
   - Python manage.py runserver
     - 打开网页，键入：127.0.0.1:8000
