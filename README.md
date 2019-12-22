@@ -1,5 +1,4 @@
-# Django-Travel
-基于Django的定点景点及酒店推荐预订系统
+# 基于Django的定点景点及酒店推荐预订系统
 本系统使用Python 3.7+Django 2.1.8+MySQL 8.0
 - 前置准备条件
   - matplotlib安装
