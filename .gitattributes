@@ -1,4 +1,4 @@
 *.swift linguist-language=python
 *.css linguist-language=python-django
-*.js linguist-language=python-django
-*.html linguist-language=python-django
+*.js linguist-language=python
+*.html linguist-language=python
