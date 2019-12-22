@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% load static %}
+<head>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+            rel="stylesheet"
+    />
+
+    <title>Reflux HTML CSS Template</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'my_backstage/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'my_backstage/assets/css/fontawesome.css' %}"/>
+    <link rel="stylesheet" href="{% static 'my_backstage/assets/css/templatemo-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'my_backstage/assets/css/owl.css' %}"/>
+    <link rel="stylesheet" href="{% static 'my_backstage/assets/css/lightbox.css' %}"/>
+</head>
+
+<body>
+<div id="page-wraper">
+    <!-- Sidebar Menu -->
+    <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+            <i class="fa fa-times" id="menu-close"></i>
+            <div class="container">
+                <div class="image">
+                    <a href="{% url 'home:my_home' %}"><img src="{% static 'my_backstage/assets/images/author-image.jpg' %}" alt=""/></a>
+                </div>
+                <div class="author-content">
+                    <h4>{{ username }}</h4>
+                    <span>个人中心</span>
+                </div>
+                <nav class="main-nav" role="navigation">
+                    <ul>
+                        <li><a href="{% url 'home:my_home' %}">个人信息</a></li>
+                        <li><a href="{% url 'home:change_password' %}">修改密码</a></li>
+                        <li><a href="{% url 'home:home' %}">回到首页</a></li>
+                        <li><a href="{% url 'home:sign_out' %}">退出登录</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    {% block about_me %}
+
+    {% endblock %}
+
+    {% block  my_order %}
+    {% endblock %}
+
+    {% block change_password %}
+    {% endblock %}
+
+
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'my_backstage/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'my_backstage/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'my_backstage/assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'my_backstage/assets/js/owl-carousel.js' %}"></script>
+<script src="{% static 'my_backstage/assets/js/lightbox.js' %}"></script>
+<script src="{% static 'my_backstage/assets/js/custom.js' %}"></script>
+<script>
+    //according to loftblog tut
+    $(".main-menu li:first").addClass("active");
+
+    var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+                '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+            $("body, html").animate(
+                {
+                    scrollTop: reqSectionPos
+                },
+                800
+            );
+        } else {
+            $("body, html").scrollTop(reqSectionPos);
+        }
+    };
+
+    var checkSection = function checkSection() {
+        $(".section").each(function () {
+            var $this = $(this),
+                topEdge = $this.offset().top - 80,
+                bottomEdge = topEdge + $this.height(),
+                wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+                var currentId = $this.data("section"),
+                    reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+                reqLink
+                    .closest("li")
+                    .addClass("active")
+                    .siblings()
+                    .removeClass("active");
+            }
+        });
+    };
+
+    $(".main-menu").on("click", "a", function (e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+    });
+
+    $(window).scroll(function () {
+        checkSection();
+    });
+</script>
+</body>
+</html>

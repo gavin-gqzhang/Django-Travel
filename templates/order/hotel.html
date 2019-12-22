@@ -1,0 +1,187 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>酒店预订</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}" />
+	<link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}" />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/css/material-bootstrap-wizard.css' %}" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="{% static 'assets/css/demo.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="image-container set-full-height" style="background-image: url({% static 'assets/img/wizard-city.jpg' %})">
+	    <!--   Creative Tim Branding   -->
+	    <a href="#">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="{% static 'assets/img/new_logo.png' %}">
+	            </div>
+	            <div class="brand">
+	                {{ username }}
+	            </div>
+	        </div>
+	    </a>
+	    <!--   Big container   -->
+	    <div class="container">
+	        <div class="row">
+		        <div class="col-sm-8 col-sm-offset-2">
+		            <!--      Wizard container        -->
+		            <div class="wizard-container">
+		                <div class="card wizard-card" data-color="purple" id="wizard">
+			                <form action="{% url 'pay:get_hotel' %}" method="post">
+			                <!--        You can switch " data-color="rose" "  with one of the next bright colors: "blue", "green", "orange", "purple"        -->
+                            {% csrf_token %}
+		                    	<div class="wizard-header">
+		                        	<h3 class="wizard-title">
+		                        		酒店预订
+		                        	</h3>
+									<h5>请您填写真实信息，完成酒店预订</h5>
+		                    	</div>
+								<div class="wizard-navigation">
+									<ul>
+			                            <li><a href="#location" data-toggle="tab">详细信息</a></li>
+			                        </ul>
+								</div>
+
+		                        <div class="tab-content">
+		                            <div class="tab-pane" id="location">
+		                            	<div class="row">
+		                                	<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">酒店名称</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" name="hotel" readonly="readonly" value="{{ hotel }}">
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group label-floating">
+		                                            <label class="control-label">房间类型</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="home" readonly="readonly" value="{{ home }}">
+	                                        	</div>
+		                                	</div>
+                                            <div class="col-sm-10 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                            <label class="control-label">房间详情</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="datail" readonly="readonly" value="{{ datail }}">
+	                                        	</div>
+		                                	</div>
+                                            <div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">价格</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" name="price" readonly="readonly" value="{{ price }} 元">
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group label-floating">
+		                                            <label class="control-label">剩余</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="num" readonly="readonly" value="{{ num }} 间">
+	                                        	</div>
+		                                	</div>
+		                                	<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">入住人数</label>
+		                                        	<select class="form-control" name="person">
+		                                            	<option value="1">1 人</option>
+		                                            	<option value="2">2 人 </option>
+		                                            	<option value="3">3 人</option>
+		                                        	</select>
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">天数</label>
+		                                        	<select class="form-control" name="data">
+		                                            	<option value="1">1 天</option>
+		                                            	<option value="2">2 天 </option>
+		                                            	<option value="3">3 天</option>
+		                                            	<option value="4">4 天</option>
+		                                            	<option value="5">5 天</option>
+		                                            	<option value="6">6 天</option>
+		                                            	<option value="7">7 天</option>
+		                                        	</select>
+		                                    	</div>
+		                                	</div>
+                                            <div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">入住人姓名</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" name="name">
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group label-floating">
+		                                            <label class="control-label">身份证号</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" name="card">
+	                                        	</div>
+		                                	</div>
+                                        <div class="col-sm-10 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">联系方式</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" name="phone">
+		                                    	</div>
+		                                	</div>
+                                            		                                	<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">入住时间</label>
+		                                        	<select class="form-control" name="live_time">
+		                                            	<option disabled="" selected=""></option>
+		                                            	{% for time in get_time %}
+                                                            <option value="{{ time }}">{{ time }}</option>
+                                                        {% endfor %}
+		                                        	</select>
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group label-floating">
+		                                        	<label class="control-label">预计到达时间</label>
+		                                        	<select class="form-control" name="come_time">
+		                                            	<option disabled="" selected=""></option>
+                                                        {% for minute in get_minute %}
+                                                            <option value="{{ minute }}">{{ minute }}</option>
+                                                        {% endfor %}
+		                                        	</select>
+		                                    	</div>
+		                                	</div>
+		                            	</div>
+		                            </div>
+		                        </div>
+		                        <div class="wizard-footer">
+	                            	<div class="pull-right">
+	                                    <input type='submit' class='btn btn-finish btn-fill btn-primary btn-wd' name='finish' value='提交' />
+	                                </div>
+		                            <div class="clearfix"></div>
+		                        </div>
+			                </form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+	        </div> <!-- row -->
+	    </div> <!--  big container -->
+    </div>
+</body>
+	<!--   Core JS Files   -->
+	<script src="{% static 'assets/js/jquery-2.2.4.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'assets/js/jquery.bootstrap.js' %}" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="{% static 'assets/js/material-bootstrap-wizard.js' %}"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+
+</html>

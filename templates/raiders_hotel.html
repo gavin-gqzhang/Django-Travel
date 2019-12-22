@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% load static %}
+<head>
+    <title>酒店详情</title>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="La casa free real state fully responsive html5/css3 home page website template"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'raiders_hotel/css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'raiders_hotel/css/responsive.css' %}">
+
+    <script type="text/javascript" src="{% static 'raiders_hotel/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'raiders_hotel/js/main.js' %}"></script>
+</head>
+<body>
+
+<section class="hero">
+    <header>
+        <div class="wrapper">
+            <a href="{% url 'home:home' %}"><img src="{% static 'raiders_hotel/img/logo.png' %}" class="logo" alt=""
+                                                 titl=""/></a>
+            <a href="{% url 'home:home' %}" class="hamburger"></a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home:home' %}">回到首页</a></li>
+                    <li><a href="{% url 'raiders:raiders' %}">旅行攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!--  end header section  -->
+
+    <section class="caption">
+        <h2 class="caption">找到您的理想酒店</h2>
+        <h3 class="properties">给您最佳的酒店体验</h3>
+    </section>
+</section><!--  end hero section  -->
+
+
+<section class="search">
+    <div class="wrapper">
+            <input type="text" id="search" name="search" placeholder="What are you looking for?" autocomplete="off"/>
+            <input type="submit" id="submit_search" name="submit_search"/>
+
+    </div>
+
+<section class="listings">
+    <div class="wrapper">
+        <ul class="properties_list">
+            {% for hotel in hotels %}
+                <li>
+                <a href="{% url 'home:hotel_datail' datail=hotel.name %}">
+                    <img src="{% static 'raiders_hotel/img/property_1.jpg' %}" alt="" title="" class="property_img"/>
+                </a>
+                <span class="price">{{ hotel.min_price }}-{{ hotel.max_price }} 元</span>
+                <div class="property_details">
+                    <h1>
+                        <a href="{% url 'home:hotel_datail' datail=hotel.name %}">{{ hotel.name }}</a>
+                    </h1>
+                    <h2>{{ hotel.datail }}<span class="property_size"></span></h2>
+                <button onclick="window.location.href='{% url 'home:hotel_datail' datail=hotel.name %}'">查看详情</button>
+                <button onclick="window.location.href='http://api.map.baidu.com/geocoder?address={{hotel.name}}&output=html&src=webapp.baidu.openAPIdemo'">去这里</button>
+                </div>
+            </li>
+            {% endfor %}
+
+{#            #}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_2.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$1000</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_3.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$500</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_1.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$2500</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_2.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$1000</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_3.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$500</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_1.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$2500</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_2.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$1000</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">#}
+{#                    <img src="{% static 'raiders_hotel/img/property_3.jpg' %}" alt="" title="" class="property_img"/>#}
+{#                </a>#}
+{#                <span class="price">$500</span>#}
+{#                <div class="property_details">#}
+{#                    <h1>#}
+{#                        <a href="#">Fuisque dictum tortor at purus libero</a>#}
+{#                    </h1>#}
+{#                    <h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>#}
+{#                </div>#}
+{#            </li>#}
+        </ul>
+        <div class="more_listing">
+            <a href="{% url 'home:hotel' %}" class="more_listing_btn">查看更多</a>
+        </div>
+    </div>
+</section>    <!--  end listing section  -->
+</section>
+
+</body>
+</html>

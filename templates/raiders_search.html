@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% load static %}
+
+<!-- Head -->
+<head>
+
+<title>搜索详情</title>
+
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta-Tags -->
+
+<!-- Custom-Stylesheet-Links -->
+<!-- Bootstrap-CSS --> 	<link rel="stylesheet" href="{% static 'raiders_search/css/bootstrap.min.css' %}"	type="text/css" media="all">
+<!-- Index-Page-CSS --> <link rel="stylesheet" href="{% static 'raiders_search/css/style.css' %}" 		type="text/css" media="all">
+<!-- Animate.CSS --> 	<link rel="stylesheet" href="{% static 'raiders_search/css/animate.css' %}" 		type="text/css" media="all">
+<!-- //Custom-Stylesheet-Links -->
+
+<!-- Fonts -->
+<!-- Body-Font -->	 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
+<!-- Logo-Font -->	 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900,700" type="text/css">
+<!-- Navbar-Font --> <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700"			   type="text/css">
+<!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+
+
+<!-- Body -->
+<body>
+
+	<!-- Header -->
+	<div class="header agileits w3layouts" id="home">
+
+		<!-- Navbar -->
+		<nav class="navbar navbar-default w3l aits wow bounceInUp agileits w3layouts">
+			<div class="container">
+
+				<div class="navbar-header agileits w3layouts">
+					<button type="button" class="navbar-toggle agileits w3layouts collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+						<span class="sr-only agileits w3layouts">Toggle navigation</span>
+						<span class="icon-bar w3l"></span>
+						<span class="icon-bar aits"></span>
+						<span class="icon-bar w3laits"></span>
+					</button>
+					<a class="navbar-brand agileits w3layouts" href="#">搜索详情</a>
+				</div>
+
+				<div id="navbar" class="navbar-collapse agileits w3layouts navbar-right collapse">
+					<ul class="nav agileits w3layouts navbar-nav">
+						<li><a href="{% url 'home:home' %}">回到首页</a></li>
+						<li><a href="{% url 'raiders:raiders' %}">旅行攻略</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+		<!-- //Navbar -->
+
+
+
+		<!-- Slider1 -->
+		<div class="slider agileits w3layouts">
+			<div class="slider-1 agileits w3layouts">
+				<ul class="rslides agileits w3layouts" id="slider1">
+				<li>
+					<img src="{% static 'raiders_search/images/slide-1.jpg' %}" alt="Agileits W3layouts">
+					<div class="layer agileits w3layouts"></div>
+					<div class="caption agileits w3layouts">
+						<h3>欢迎您的使用 <span>我们将会竭尽全力为您提供最优质的服务</span></h3>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'raiders_search/images/slide-2.jpg' %}" alt="Agileits W3layouts">
+					<div class="caption agileits w3layouts">
+						<h3>筛选最优质的酒店或景点</h3>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'raiders_search/images/slide-3.jpg' %}" alt="Agileits W3layouts">
+					<div class="caption agileits w3layouts">
+						<h3>提供最精准的定位和信息推送</h3>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'raiders_search/images/slide-4.jpg' %}" alt="Agileits W3layouts">
+					<div class="caption agileits w3layouts">
+						<h3>努力贴近您的需求，实现您的需求</h3>
+					</div>
+				</li>
+				<li>
+					<img src="{% static 'raiders_search/images/slide-5.jpg' %}" alt="Agileits W3layouts">
+					<div class="layer agileits w3layouts"></div>
+					<div class="caption agileits w3layouts">
+						<h3>任何问题，感谢反馈</h3>
+					</div>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<!-- //Slider1 -->
+		<div class="clearfix"></div>
+
+	</div>
+	<!-- //Header -->
+
+
+
+	<!-- Projects -->
+	<div class="projects agileits w3layouts">
+		<div class="container">
+
+			<div class="col-md-8 col-sm-8 projects-grid agileits w3layouts projects-grid1 wow slideInLeft">
+				<!-- Slider2 -->
+				<div class="slider-2 agileits w3layouts">
+					<ul class="rslides agileits w3layouts" id="slider2">
+						<li>
+							<img src="{% static 'raiders_search/images/project-1.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-2.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-3.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-4.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-5.jpg' %}" alt="Agileits W3layouts">
+						</li>
+					</ul>
+				</div>
+				<!-- //Slider2 -->
+
+				<!-- Slider3 -->
+				<div class="slider-3 agileits w3layouts">
+					<ul class="rslides agileits w3layouts" id="slider3">
+						<li>
+							<img src="{% static 'raiders_search/images/project-6.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-7.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-8.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-9.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-10.jpg' %}" alt="Agileits W3layouts">
+						</li>
+					</ul>
+				</div>
+				<!-- //Slider3 -->
+			</div>
+
+			<div class="col-md-4 col-sm-4 projects-grid agileits w3layouts projects-grid2 wow slideInRight">
+				<h1>酒店详情</h1>
+				<h4>最优的酒店选择</h4>
+				<div class="h4-underline agileits w3layouts wow slideInLeft"></div>
+				<p>根绝您的需求，为您量身打造，让您花最少的钱，体验最优质的客房服务.</p>
+				<a class="agileits w3layoutswow slideInLeft" href="{% url 'raiders:get_hotel' distination=distination distance=distance %}">查看酒店 <span class="glyphicon agileits w3layouts glyphicon-arrow-right" aria-hidden="true"></span></a>
+			</div>
+
+		</div>
+	</div>
+	<!-- //Projects -->
+<br/><br/><br/><br/>
+    <!-- Projects -->
+	<div class="projects agileits w3layouts">
+		<div class="container">
+
+			<div class="col-md-8 col-sm-8 projects-grid agileits w3layouts projects-grid1 wow slideInLeft">
+				<!-- Slider2 -->
+				<div class="slider-2 agileits w3layouts">
+					<ul class="rslides agileits w3layouts" id="slider2">
+						<li>
+							<img src="{% static 'raiders_search/images/project-1.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-2.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-3.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-4.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-5.jpg' %}" alt="Agileits W3layouts">
+						</li>
+					</ul>
+				</div>
+				<!-- //Slider2 -->
+
+				<!-- Slider3 -->
+				<div class="slider-3 agileits w3layouts">
+					<ul class="rslides agileits w3layouts" id="slider3">
+						<li>
+							<img src="{% static 'raiders_search/images/project-6.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-7.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-8.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-9.jpg' %}" alt="Agileits W3layouts">
+						</li>
+						<li>
+							<img src="{% static 'raiders_search/images/project-10.jpg' %}" alt="Agileits W3layouts">
+						</li>
+					</ul>
+				</div>
+				<!-- //Slider3 -->
+			</div>
+
+			<div class="col-md-4 col-sm-4 projects-grid agileits w3layouts projects-grid2 wow slideInRight">
+				<h1>景区详情</h1>
+				<h4>最美的景区选择</h4>
+				<div class="h4-underline agileits w3layouts wow slideInLeft"></div>
+				<p>根据您的需求，为您量身打造，让您体验到多样的最美景区.</p>
+				<a class="agileits w3layoutswow slideInLeft" href="{% url 'raiders:get_attractions' distination=distination distance=distance%}">查看景区 <span class="glyphicon agileits w3layouts glyphicon-arrow-right" aria-hidden="true"></span></a>
+			</div>
+
+		</div>
+	</div>
+	<!-- //Projects -->
+
+
+
+	<!-- Custom-JavaScript-File-Links -->
+
+		<!-- Default-JavaScript -->	  <script type="text/javascript" src="{% static 'raiders_search/js/jquery-2.1.4.min.js' %}"></script>
+		<!-- Bootstrap-JavaScript --> <script type="text/javascript" src="{% static 'raiders_search/js/bootstrap.min.js' %}"></script>
+
+		<!-- Animate.CSS-JavaScript -->
+			<script src="{% static 'raiders_search/js/wow.min.js' %}"></script>
+				<script>
+					new WOW().init();
+				</script>
+		<!-- //Animate.CSS-JavaScript -->
+
+		<!-- Slider-JavaScript -->
+			<script src="{% static 'raiders_search/js/responsiveslides.min.js' %}"></script>
+			<script>
+				$(function () {
+					$("#slider1, #slider2, #slider3, #slider4").responsiveSlides({
+						auto: true,
+						nav: true,
+						speed: 1500,
+						namespace: "callbacks",
+						pager: true,
+					});
+				});
+			</script>
+		<!-- //Slider-JavaScript -->
+
+		<!-- Slide-To-Top JavaScript (No-Need-To-Change) -->
+			<script type="text/javascript">
+				$(document).ready(function() {
+					var defaults = {
+						containerID: 'toTop', // fading element id
+						containerHoverID: 'toTopHover', // fading element hover id
+						scrollSpeed: 100,
+						easingType: 'linear'
+					};
+					$().UItoTop({ easingType: 'easeOutQuart' });
+				});
+			</script>
+			<a href="#" id="toTop" class="agileits w3layouts" style="display: block;"> <span id="toTopHover" style="opacity: 0;"> </span></a>
+		<!-- //Slide-To-Top JavaScript -->
+
+		<!-- Smooth-Scrolling-JavaScript -->
+			<script type="text/javascript" src="{% static 'raiders_search/js/move-top.js' %}"></script>
+			<script type="text/javascript" src="{% static 'raiders_search/js/easing.js' %}"></script>
+			<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll, .navbar li a, .footer li a").click(function(event){
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+			</script>
+		<!-- //Smooth-Scrolling-JavaScript -->
+
+	<!-- //Custom-JavaScript-File-Links -->
+
+
+
+</body>
+<!-- //Body -->
+
+
+
+</html>

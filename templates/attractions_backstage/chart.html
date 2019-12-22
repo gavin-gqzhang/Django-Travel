@@ -1,0 +1,78 @@
+﻿{% extends 'templates/attractions_backstage/base.html' %}
+
+{% block top %}
+    {{ block.super }}
+{% endblock %}
+
+
+<!--面包屑导航-->
+{% block navigation %}
+    <div class="header">
+        <h1 class="page-header">
+            数据分析
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'my_space:hotel_backstage' %}">后台管理</a></li>
+            <li><a href="{% url 'my_space:hotel_chart' %}">数据分析</a></li>
+            <li class="active">详情</li>
+        </ol>
+
+    </div>
+{% endblock %}
+
+{% block datail %}
+    <div id="page-inner">
+
+        <div class="row">
+
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        收益分析
+                    </div>
+                    <div class="card-content">
+                        <div id="morris-bar-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        客流分析
+                    </div>
+                    <div class="card-content">
+                        <div id="morris-area-chart"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        订单分析
+                    </div>
+                    <div class="card-content">
+                        <div id="morris-line-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        收益分析
+                    </div>
+                    <div class="card-content">
+                        <div id="morris-donut-chart"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /. ROW  -->
+    </div>
+{% endblock %}

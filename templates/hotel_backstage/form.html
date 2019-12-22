@@ -1,0 +1,270 @@
+﻿{% extends 'templates/hotel_backstage/base.html' %}
+
+{% block top %}
+    {{ block.super }}
+{% endblock %}
+
+<!--面包屑导航-->
+{% block navigation %}
+    <div class="header">
+        <h1 class="page-header">
+            酒店详情
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'my_space:hotel_backstage' %}">后台管理</a></li>
+            <li><a href="{% url 'my_space:hotel_form' %}">酒店信息</a></li>
+            <li class="active">详情</li>
+        </ol>
+
+    </div>
+{% endblock %}
+
+{% block datail %}
+    <form method="post" action="{% url 'my_space:hotel_infor' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-action">
+                        请完善您的信息
+                    </div>
+                    <div class="card-content">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {% ifnotequal manager  ''%}
+                                        <input id="name" type="text" class="validate" name="username" value="{{ manager }}">
+                                        <label for="name" >店长姓名</label>
+                                    {% else %}
+                                        <input id="name" type="text" class="validate" name="username">
+                                        <label for="name" >店长姓名</label>
+                                    {% endifnotequal %}
+
+                                </div>
+                                <div class="input-field col s6">
+                                    {% ifnotequal manager '' %}
+                                        <input id="hotel_name" type="text" class="validate" name="hotel_name" value="{{ name }}">
+                                        <label for="hotel_name">酒店名称</label>
+                                    {% else %}
+                                        <input id="hotel_name" type="text" class="validate" name="hotel_name">
+                                        <label for="hotel_name">酒店名称</label>
+                                    {% endifnotequal %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {% ifnotequal address '' %}
+                                        <input id="address" type="text" class="validate" name="address" value="{{ address }}">
+                                    <label for="address">酒店地址</label>
+                                        {% else %}
+                                        <input id="address" type="text" class="validate" name="address">
+                                    <label for="address">酒店地址</label>
+                                    {% endifnotequal %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {% ifnotequal  phone ''%}
+                                        <input id="phone" type="text" class="validate" name="phone" value="{{ phone }}">
+                                    <label for="phone">联系电话</label>
+                                        {% else %}
+                                        <input id="phone" type="text" class="validate" name="phone">
+                                    <label for="phone">联系电话</label>
+                                    {% endifnotequal %}
+                                </div>
+                                <div class="input-field col s6">
+                                    {% ifnotequal home_num ''%}
+                                        <input id="home_num" type="number" class="validate" name="home_num" value="{{ home_num }}">
+                                    <label for="home_num">房间数</label>
+                                        {% else %}
+                                        <input id="home_num" type="number" class="validate" name="home_num">
+                                    <label for="home_num">房间数</label>
+                                    {% endifnotequal %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {% ifnotequal email '' %}
+                                        <input id="email" type="email" class="validate" name="email" value="'{{ email }}">
+                                    <label for="email">邮箱</label>
+                                        {% else %}
+                                        <input id="email" type="email" class="validate" name="email">
+                                    <label for="email">邮箱</label>
+                                    {% endifnotequal %}
+                                </div>
+                                <div class="input-field col s6">
+                                    {% ifnotequal in_time ''%}
+                                        <input id="in_time" type="text" class="validate" name="in_time" value="{{ in_time }}">
+                                    <label for="in_time">营业时间</label>
+                                        {% else %}
+                                        <input id="in_time" type="text" class="validate" name="in_time">
+                                    <label for="in_time">营业时间</label>
+                                    {% endifnotequal %}
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                    <div class="input-field col s6">
+                                    {% ifnotequal min_price '' %}
+                                        <input id="min_price" type="number" class="validate" name="min_price" value="{{ min_price }}">
+                                    <label for="min_price">酒店最低价</label>
+                                        {% else %}
+                                        <input id="min_price" type="number" class="validate" name="min_price">
+                                    <label for="min_price">酒店最低价</label>
+                                    {% endifnotequal %}
+                                </div>
+                                <div class="input-field col s6">
+                                    {% ifnotequal max_price ''%}
+                                                  <input id="max_price" type="number" class="validate" name="max_price" value="{{ max_price }}">
+                                    <label for="max_price">酒店最高价</label>
+                                        {% else %}
+                                                  <input id="max_price" type="number" class="validate" name="max_price">
+                                    <label for="max_price">酒店最高价</label>
+                                    {% endifnotequal %}
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <label for="Publicity photo">酒店宣传照</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="Publicity photo" type="file" class="validate" accept="image/*" name="Publicity_photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearBoth"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-action">
+                        酒店介绍
+                    </div>
+                    <div class="card-content">
+                        <div class="col s12">
+                            <textarea name="editor1"></textarea>
+                            <script>
+                                CKEDITOR.replace('editor1',{height:500})
+                            </script>
+                        </div>
+
+                        <div class="clearBoth"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-action">
+                        房型统计
+                    </div>
+                    <div class="card-content">
+                            <table border="1">
+                                <tr>
+                                    <td>房型</td>
+                                    <td>价格(元/天)</td>
+                                    <td>人数</td>
+                                    <td>数量</td>
+                                    <td>图片</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="home"/></td>
+                                    <td><input type="number" name="price"/></td>
+                                    <td><input type="number" name="person"/></td>
+                                    <td><input type="number" name="num"/></td>
+                                    <td><input type="file" name="img" accept="image/*"/></td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.col-lg-12 -->
+        <div class="row" style="text-align: center">
+            <div class="col-lg-12">
+            <button type="submit" class="btn btn-success">保存</button>
+            <button type="reset" class="btn btn-success">清空</button>
+            </div>
+        </div>
+    </div>
+    </form>
+{% endblock %}

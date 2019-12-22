@@ -1,0 +1,274 @@
+﻿{% extends 'templates/attractions_backstage/base.html' %}
+
+{% block top %}
+    {{ block.super }}
+{% endblock %}
+
+
+<!--面包屑导航-->
+{% block navigation %}
+    <div class="header">
+        <h1 class="page-header">
+            首页
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'my_space:hotel_backstage' %}">后台管理</a></li>
+            <li><a href="{% url 'my_space:hotel_backstage' %}">首页</a></li>
+            <li class="active">详情</li>
+        </ol>
+
+    </div>
+{% endblock %}
+
+{% block datail %}
+    <div id="page-inner">
+
+        <div class="dashboard-cards">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    <div class="card horizontal cardIcon waves-effect waves-dark">
+                        <div class="card-image red">
+                            <i class="material-icons dp48">import_export</i>
+                        </div>
+                        <div class="card-stacked red">
+                            <div class="card-content">
+                                <h3>{{ sum_order }}</h3>
+                            </div>
+                            <div class="card-action">
+                                <strong>订单量</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    <div class="card horizontal cardIcon waves-effect waves-dark">
+                        <div class="card-image orange">
+                            <i class="material-icons dp48">shopping_cart</i>
+                        </div>
+                        <div class="card-stacked orange">
+                            <div class="card-content">
+                                <h3>{{ today_price }}</h3>
+                            </div>
+                            <div class="card-action">
+                                <strong>今日收益</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    <div class="card horizontal cardIcon waves-effect waves-dark">
+                        <div class="card-image blue">
+                            <i class="material-icons dp48">equalizer</i>
+                        </div>
+                        <div class="card-stacked blue">
+                            <div class="card-content">
+                                <h3>{{ sum_price }}</h3>
+                            </div>
+                            <div class="card-action">
+                                <strong>总收益</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+
+                    <div class="card horizontal cardIcon waves-effect waves-dark">
+                        <div class="card-image green">
+                            <i class="material-icons dp48">supervisor_account</i>
+                        </div>
+                        <div class="card-stacked green">
+                            <div class="card-content">
+                                <h3>{{ today_order }}</h3>
+                            </div>
+                            <div class="card-action">
+                                <strong>今日预计到达人数</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="cirStats">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="card-panel text-center">
+                                <h4>今日订单</h4>
+                                <div class="easypiechart" id="easypiechart-blue" data-percent="{{ today_order }}"><span
+                                        class="percent">{{ today_order }} 单</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="card-panel text-center">
+                                <h4>总订单</h4>
+                                <div class="easypiechart" id="easypiechart-red" data-percent="{{ sum_order }}"><span class="percent">{{ sum_order }} 单</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="card-panel text-center">
+                                <h4>今日收益</h4>
+                                <div class="easypiechart" id="easypiechart-teal" data-percent="{{ today_price }}/100"><span
+                                        class="percent">{{ today_price }} 元</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="card-panel text-center">
+                                <h4>总收益</h4>
+                                <div class="easypiechart" id="easypiechart-orange" data-percent="{{ sum_price }}/100"><span
+                                        class="percent">{{ sum_price }} 元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->
+            <div class="col-xs-12 col-sm-12 col-md-5">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="card">
+                            <div class="card-image donutpad">
+                                <div id="morris-donut-chart"></div>
+                            </div>
+                            <div class="card-action">
+                                <b>收益分析</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->
+        </div>
+
+    <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        <b>详情</b>
+                    </div>
+                    <div class="card-image">
+                        <div class="collection">
+                            <a href="#!" class="collection-item">管理员名称<span class="new badge red"
+                                                                          data-badge-caption="">{{ attraction_datail.manager }}</span></a>
+                            <a href="#!" class="collection-item">联系方式<span class="new badge blue"
+                                                                           data-badge-caption="">{{ attraction_datail.phone }}</span></a>
+                            <a href="#!" class="collection-item"><span class="badge">{{ today_order }}</span>今日订单</a>
+                            <a href="#!" class="collection-item"><span class="badge">{{ sum_order }}</span>总订单</a>
+                            <a href="#!" class="collection-item">今日收益<span class="new badge blue"
+                                                                           data-badge-caption="">{{ today_price }}</span></a>
+                            <a href="#!" class="collection-item"><span class="badge">{{ sum_price }}</span>总收益</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-action">
+                        <b>今日票价</b>
+                    </div>
+                    <div class="card-image">
+                        <ul class="collection">
+                            {% for foo in attraction_price %}
+                                <li class="collection-item avatar">
+                                <i class="material-icons circle green">track_changes</i>
+                                <span class="title">{{ foo.ticket_name }}</span>
+                                <p>价格：{{ foo.ticket_price }} <br>
+
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                            {% endfor %}
+
+{#                            <li class="collection-item avatar">#}
+{#                                <i class="material-icons circle">folder</i>#}
+{#                                <span class="title">Title</span>#}
+{#                                <p>First Line <br>#}
+{#                                    Second Line#}
+{#                                </p>#}
+{#                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>#}
+{#                            </li>#}
+{#                            <li class="collection-item avatar">#}
+{#                                <i class="material-icons circle green">track_changes</i>#}
+{#                                <span class="title">Title</span>#}
+{#                                <p>First Line <br>#}
+{#                                    Second Line#}
+{#                                </p>#}
+{#                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>#}
+{#                            </li>#}
+{#                            <li class="collection-item avatar">#}
+{#                                <i class="material-icons circle red">play_arrow</i>#}
+{#                                <span class="title">Title</span>#}
+{#                                <p>First Line <br>#}
+{#                                    Second Line#}
+{#                                </p>#}
+{#                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>#}
+{#                            </li>#}
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-image">
+                        <div id="morris-line-chart"></div>
+                    </div>
+                    <div class="card-action">
+                        <b>订单分析</b>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-image">
+                        <div id="morris-bar-chart"></div>
+                    </div>
+                    <div class="card-action">
+                        <b> 售出房间</b>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="card-image">
+                        <div id="morris-area-chart"></div>
+                    </div>
+                    <div class="card-action">
+                        <b>收益分析</b>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+
+
+    </div>
+{% endblock %}

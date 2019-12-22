@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93b57c21-338b-4619-8c8a-f66c6988b101" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="attractions_datail: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="attractions_price: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="flow: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="hotel_datail: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user_order: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Q2o2FMZBRVxgrYHMT8koZ8PmYd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/项目资料/安乐学堂/新/alxt" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\python-web\Travels\static" />
+      <recent name="E:\python-web\Travels\media\editor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\python-web\Travels" />
+      <recent name="E:\python-web\Travels\templates" />
+      <recent name="E:\python-web\Travels\static\Font" />
+      <recent name="E:\python-web\Travels\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Travels" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Travels" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Travels.settings" />
+      </envs>
+      <option name="SDK_HOME" value="F:\Python\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7277a0a5" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93b57c21-338b-4619-8c8a-f66c6988b101" name="Default Changelist" comment="" />
+      <created>1566977842926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566977842926</updated>
+      <workItem from="1566977845886" duration="22000" />
+      <workItem from="1566977994564" duration="4378000" />
+      <workItem from="1567049763767" duration="39565000" />
+      <workItem from="1567303154694" duration="4249000" />
+      <workItem from="1567385007473" duration="30144000" />
+      <workItem from="1567556414944" duration="21218000" />
+      <workItem from="1567668839153" duration="11023000" />
+      <workItem from="1567818056607" duration="39662000" />
+      <workItem from="1568024574095" duration="19114000" />
+      <workItem from="1568087541896" duration="5977000" />
+      <workItem from="1568164569351" duration="28932000" />
+      <workItem from="1568221095636" duration="111000" />
+      <workItem from="1568261319754" duration="599000" />
+      <workItem from="1568344142686" duration="11624000" />
+      <workItem from="1568619389800" duration="1333000" />
+      <workItem from="1568726450712" duration="30148000" />
+      <workItem from="1569740027420" duration="6591000" />
+      <workItem from="1569983317559" duration="1322000" />
+      <workItem from="1570504867404" duration="593000" />
+      <workItem from="1570608315407" duration="5754000" />
+      <workItem from="1570934527276" duration="2605000" />
+      <workItem from="1570937512448" duration="28622000" />
+      <workItem from="1571059979478" duration="11778000" />
+      <workItem from="1571472195524" duration="1799000" />
+      <workItem from="1571818704243" duration="735000" />
+      <workItem from="1572141210332" duration="823000" />
+      <workItem from="1572228499826" duration="1695000" />
+      <workItem from="1572872948359" duration="10696000" />
+      <workItem from="1573031931137" duration="4544000" />
+      <workItem from="1573993921701" duration="883000" />
+      <workItem from="1573995027864" duration="1345000" />
+      <workItem from="1574603773108" duration="740000" />
+      <workItem from="1574687282064" duration="7296000" />
+      <workItem from="1574907989017" duration="960000" />
+      <workItem from="1574920302495" duration="1817000" />
+      <workItem from="1575081604045" duration="750000" />
+      <workItem from="1575376732990" duration="596000" />
+      <workItem from="1575526865523" duration="13842000" />
+      <workItem from="1575786440975" duration="2399000" />
+      <workItem from="1576299847477" duration="23310000" />
+      <workItem from="1576394163706" duration="820000" />
+      <workItem from="1576395961464" duration="957000" />
+      <workItem from="1576396945637" duration="31413000" />
+      <workItem from="1576559790701" duration="73092000" />
+      <workItem from="1576802585810" duration="984000" />
+      <workItem from="1576815105004" duration="5391000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1576678049870">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576678049870" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1576822198111">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576822198111" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1576822198112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1576822198112" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1576759501790">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1576759501790" />
+    <state x="613" y="303" width="333" height="225" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1576670624142">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="613" y="303" width="333" height="225" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1576670624142" />
+    <state x="349" y="70" key="com.intellij.database.dbimport.ImportDialog" timestamp="1576761413738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="70" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.824@0.0.1536.824" timestamp="1576761413738" />
+    <state x="553" y="246" width="429" height="338" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1576761881383">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="553" y="246" width="429" height="338" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824@0.0.1536.824" timestamp="1576761881383" />
+    <state x="554" y="98" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1576815830715">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="554" y="98" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1576815830715" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576670828985">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576670828985" />
+  </component>
+</project>

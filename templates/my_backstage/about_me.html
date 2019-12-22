@@ -1,0 +1,104 @@
+{% extends 'templates/my_backstage/base.html' %}
+{% load static %}
+
+{% block about_me %}
+<section class="section contact-me" data-section="{% url 'home:my_home' %}">
+    <form method="post" action="{% url 'home:change_information' %}">
+        <div class="container">
+          <div class="section-heading">
+            <h2>我的信息</h2>
+            <div class="line-dec"></div>
+          </div>
+          <div class="row">
+            <div class="right-content">
+              <div class="container">
+                <form id="contact" action="" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="username"
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          placeholder="{{ username }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="name"
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          placeholder="{{ information.name }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                                          <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="phone"
+                          type="text"
+                          class="form-control"
+                          id="phone"
+                          placeholder="{{ information.phone }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                                          <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="email"
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          placeholder="{{ information.email }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                                          <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="QQ"
+                          type="text"
+                          class="form-control"
+                          id="QQ"
+                          placeholder="{{ information.qq }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input
+                          name="address"
+                          type="text"
+                          class="form-control"
+                          id="address"
+                          placeholder="{{ information.address }}"
+                          required=""
+                        />
+                      </fieldset>
+                    </div><br/><br/>
+                    <div class="col-md-12" style="text-align: center">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          保存
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </section>
+{% endblock %}

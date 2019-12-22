@@ -1,0 +1,88 @@
+{% extends 'templates/my_backstage/base.html' %}
+{% load static %}
+
+{% block my_order %}
+    <section class="section about-me" data-section="{% url 'home:my_order' %}">
+        <div class="container">
+            <div class="section-heading">
+                <h2>我的订单</h2>
+                <div class="line-dec"></div>
+            </div>
+            {% for foo in hotel_order %}
+                <div class="left-image-post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="left-image">
+                                <img src="{% static 'my_backstage/assets/images/left-image.jpg' %}" alt=""/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="right-text">
+                                {% for i in hotel %}
+                                    {% ifequal foo.hotel_id i.id %}
+                                        <h4>{{ i.name }}</h4>
+                                    {% endifequal %}
+                                {% endfor %}
+                                <p>
+                                    订单用户：{{ foo.name }}
+                                    下单时间：{{ foo.auth_time }}
+                                </p>
+                                <p>
+                                    {% for i in home %}
+                                        {% ifequal i.hotel_id foo.hotel_id %}
+                                            {% ifequal foo.home_id i.id%}
+                                                房型：{{ i.home }}
+                                            {% endifequal %}
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    使用时间：{{ foo.live_time }}
+                                </p>
+                                <p>
+                                    预订人：{{ foo.name }}
+                                    价格：{{ foo.price }}
+                                </p>
+                                <div class="white-button">
+                                    <a href="#">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for foo in attraction_order %}
+            <div class="right-image-post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="left-text">
+                            {% for i in attraction %}
+                                {% ifequal i.id foo.attractions_id %}
+                                    <h4>{{ i.name }}</h4>
+                                {% endifequal %}
+                            {% endfor %}
+
+                            <p>
+                                订单用户：{{ foo.name }}
+                                预订时间：{{ foo.auth_time }}
+                            </p>
+                            <p>
+                                使用时间：{{ foo.use_time }}
+                                价格：{{ foo.price }}
+                            </p>
+                            <div class="white-button">
+                                <a href="#">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-image">
+                            <img src="{% static 'my_backstage/assets/images/right-image.jpg' %}" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+{% endblock %}

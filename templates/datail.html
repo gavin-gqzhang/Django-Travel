@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block bottom1 %}
+
+    <section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="section-features">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center mb-5 ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">详细信息</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+                            <p class="lead">为您提供最全面，最精准的商家信息</p>
+                        </div>
+                    </div>
+                </div>
+                {% ifequal hotels 1  %}
+                    <div class="col-lg-12 col-md-6">
+                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3"><span class="oi oi-home display-4 text-muted"></span></div>
+                        <div class="media-body" id="top">
+                            <h5 class="mt-0">{{ hotel.name }}</h5>
+                            <p class="mb-5">{{ hotel.datail }}</p>
+                            <ul class="list-unstyled ftco-list-check text-left">
+                                {% for foo in home %}
+                                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span>
+                                        <span>{{ foo.home }}</span>&nbsp;&nbsp;&nbsp;<span>可住 {{ foo.person_num }} 人</span>&nbsp;&nbsp;&nbsp;<span>价格：{{ foo.price }} 元</span>&nbsp;&nbsp;&nbsp;<span>详情： {{ foo.datail }}</span><span><a
+                                                href="{% url 'pay:place_order' hotel=hotel.name home=foo.home %}"
+                                                class="btn btn-primary btn-sm">预订</a></span>
+                                    </li>
+                                {% endfor %}
+                                    <li class="d-flex mb-2"><span class="oi oi-map mr-3 text-primary"></span>
+                                        <span>地址：{{ hotel.address }}</span>
+                                    </li>
+                            <li class="d-flex mb-2"><span class="oi oi-phone mr-3 text-primary"></span>
+                                        <span>联系方式：{{ hotel.phone }}</span>
+                                    </li>
+                            </ul>
+                            <p class="mb-0">
+                                {% ifnotequal hotel_img ''  %}
+                                    <a href="#imgs"
+                                                class="btn btn-primary btn-sm">酒店图集</a>
+                                {% endifnotequal %}
+                                <a href="http://api.map.baidu.com/geocoder?address={{ name }}&output=html&src=webapp.baidu.openAPIdemo"
+                                   class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    {% ifnotequal hotel_img ''  %}
+                        <div class="col-lg-12 col-md-6">
+                            <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3">
+                        </div><br>
+                        <div class="media-body" id="#imgs">
+                            <h5 class="mt-0">酒店图集</h5>
+                            {% for imgs in hotel_img %}
+                                <img src="/media/{{ imgs.img }}">
+                            {% endfor %}
+
+                            <p class="mb-0">
+                                <a href="#top"
+                                                class="btn btn-primary btn-sm">回到顶部</a>
+                                <a href="http://api.map.baidu.com/geocoder?address={{ attraction_datail.name }}&output=html&src=webapp.baidu.openAPIdemo"
+                                   class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endifnotequal %}
+
+                    {% else %}
+                    <div class="col-lg-12 col-md-6">
+                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3" id="top">
+                            {% ifequal public ''  %}
+                                <span class="oi oi-home display-4 text-muted"></span>
+                                {% else %}
+                                <img src="/media/{{ public.upload }}">
+                            {% endifequal %}
+                        </div><br>
+                        <div class="media-body">
+                            <h5 class="mt-0">{{ attraction_datail.name }}</h5>
+                            <p class="mb-5">{{ attraction_datail.datail }}</p>
+                            <ul class="list-unstyled ftco-list-check text-left">
+                                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span>
+                                        <span>可容纳人数：{{ attaction_datail.max_num }}</span>
+                                    </li>
+                                {% for foo in price %}
+                                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span>
+                                        <span>{{ foo.ticket_name }} ：{{ foo.ticket_price }}</span>
+                                    </li>
+                                {% endfor %}
+                                    <li class="d-flex mb-2"><span class="oi oi-map mr-3 text-primary"></span>
+                                        <span>地址：{{ attraction_datail.address }}</span>
+                                    </li>
+                            <li class="d-flex mb-2"><span class="oi oi-phone mr-3 text-primary"></span>
+                                        <span>联系方式：{{ attraction_datail.phone }}</span>
+                                    </li>
+                            </ul>
+                            <p class="mb-0">
+                                <a href="{% url 'pay:attraction_order' attraction=attraction_datail.name %}"
+                                                class="btn btn-primary btn-sm">预订</a>
+                                {% ifnotequal attraction_img ''  %}
+                                    <a href="#imgs"
+                                                class="btn btn-primary btn-sm">景点图集</a>
+                                {% endifnotequal %}
+                                <a href="#flow"
+                                                class="btn btn-primary btn-sm">景区流量走势</a>
+                                <a href="http://api.map.baidu.com/geocoder?address={{ attraction_datail.name }}&output=html&src=webapp.baidu.openAPIdemo"
+                                   class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-lg-12 col-md-6">
+                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3">
+                        </div><br>
+                        <div class="media-body">
+                            <h5 class="mt-0" id="flow">景点流量走势图</h5>
+                            <img src="/media/{{ flow.flow_img }}">
+                            <br>
+                            <br>
+                            <p class="mb-0">
+                                <a href="#top"
+                                                class="btn btn-primary btn-sm">回到顶部</a>
+                                <a href="http://api.map.baidu.com/geocoder?address={{ attraction_datail.name }}&output=html&src=webapp.baidu.openAPIdemo"
+                                   class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% ifnotequal attraction_img ''  %}
+                        <div class="col-lg-12 col-md-6">
+                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3">
+                        </div><br>
+                        <div class="media-body" id="#imgs">
+                            <h5 class="mt-0">景点图集</h5>
+                            {% for imgs in attraction_img %}
+                                <img src="/media/{{ imgs.img }}">
+                            {% endfor %}
+                            
+                            <p class="mb-0">
+                                <a href="#top"
+                                                class="btn btn-primary btn-sm">回到顶部</a>
+                                <a href="#flow"
+                                                class="btn btn-primary btn-sm">景区流量走势</a>
+                                <a href="http://api.map.baidu.com/geocoder?address={{ attraction_datail.name }}&output=html&src=webapp.baidu.openAPIdemo"
+                                   class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endifnotequal %}
+                {% endifequal %}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

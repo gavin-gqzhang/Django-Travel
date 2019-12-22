@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>景区详情</title>
+    <link href="{% static 'raiders_attractions/assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'raiders_attractions/assets/css/ionicons.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="{% static 'raiders_attractions/assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<!-- preloader -->
+<div id="preloader"></div>
+<!-- end of preloader -->
+
+<div class="body-content" style="display:none;">
+    <div class="navbar-solid-state">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <!-- <h1><a href="index.html" class="a-transparent">Solid State</a></h1> -->
+            <nav>
+                <a href="{% url 'home:home' %}" class="a-menu">回到首页<i class="ion-android-menu"></i> </a>
+                <a href="{% url 'raiders:raiders' %}" class="a-menu">旅行攻略<i class="ion-android-menu"></i> </a>
+            </nav>
+        </header>
+
+    </div>
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>通过旅行，释放所有的坏心情</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>最美的景点配最美的人，在喧嚣的城市中放空自己，在最美景点中寻找最初的自己</p>
+                </div>
+            </div>
+
+{#            <div class="row">#}
+{#                <div class="col-md-12">#}
+{#                    <a href="#" class="btn btn-banner">DEFAULT</a>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </section>
+{% for attraction in attractions %}
+    <section id="one">
+        <div class="container">
+            <div class="one-features">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="section-highlight">
+                            <h2>{{ attraction.name }}</h2>
+                        </div>
+                        <div class="section-details">
+                            <p>
+                                {{ attraction.datail }}
+                            </p>
+                            <a href="{% url 'home:attractions_datail' datail=attraction.name %}" class="btn btn-learn-more">查看详情 <i class="ion-ios-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                       {% for i in public %}
+                            {% ifequal i.attractions_id attraction.id%}
+                                 <img src="/media/{{ i.upload }}"
+                             alt="Responsive image" class="img-responsive">
+                            {% endifequal %}
+                       {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+
+
+
+{#    <section id="two">#}
+{#        <div class="container">#}
+{#            <div class="two-features">#}
+{#                <div class="row">#}
+{#                    <div class="col-md-4">#}
+{#                        <img src="{% static 'raiders_attractions/assets/images/04_shoe.png' %}" alt="Responsive image"#}
+{#                             class="img-responsive">#}
+{#                    </div>#}
+{#                    <div class="col-md-8">#}
+{#                        <div class="section-highlight">#}
+{#                            <h2>天坛公园  风景区</h2>#}
+{#                        </div>#}
+{#                        <div class="section-details">#}
+{#                            <p>#}
+{#                                ·天坛是明、清两朝皇帝祭天、求雨和祈祷丰年的专用祭坛，分为内坛、外坛两部分，主要有祈年殿、皇乾殿等。#}
+{#                                ·除了观赏各殿堂的精巧建筑，回音壁、三音石等奇巧的设计也一样令人慨叹古人的智慧。#}
+{#                                ·游览一般南门进北门（或东门）出，依次参观圜丘、皇穹宇、丹陛桥、祈年殿和皇乾殿后离开。#}
+{#                                tips:斋宫和宰牲亭这两处景点，周一闭馆#}
+{#                            </p>#}
+{#                            <a href="#" class="btn btn-learn-more">查看详情 <i class="ion-ios-arrow-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{##}
+{#    <section id="three">#}
+{#        <div class="container">#}
+{#            <div class="three-features">#}
+{#                <div class="row">#}
+{#                    <div class="col-md-8">#}
+{#                        <div class="section-highlight">#}
+{#                            <h2>长白山  风景区</h2>#}
+{#                        </div>#}
+{#                        <div class="section-details">#}
+{#                            <p>#}
+{#                                长白山景区是国家AAAAA级旅游景区，主峰长白山多白色浮石与积雪而得名，素有“千年积雪万年松，直上人间第一峰”的美誉。景区是拥有“神山、圣水、奇林、仙果”等盛誉的旅游胜地，也是满族的发祥地，在清代有“圣地”之誉，皇帝须亲自或委派大臣到吉林乌拉（今吉林市）望祭长白山。1983年夏，邓小平登上长白山极顶,题写"长白山"、"天池"横幅，并发出赞叹："人生不上长白山，实为一大憾事！” 。#}
+{#                            </p>#}
+{#                            <a href="#" class="btn btn-learn-more">查看详情 <i class="ion-ios-arrow-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-md-4">#}
+{#                        <img src="{% static 'raiders_attractions/assets/images/05_cap.png' %}" alt="Responsive image"#}
+{#                             class="img-responsive">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+
+</div>
+
+<script src="{% static 'raiders_attractions/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'raiders_attractions/assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'raiders_attractions/assets/js/main.js' %}"></script>
+
+
+</body>
+
+</html>

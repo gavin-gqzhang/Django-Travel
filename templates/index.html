@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- 下部介绍栏1 -->
+{% block bottom1 %}
+
+    <section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="section-features">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center mb-5 ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">酒店推荐</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+                            <p class="lead">我们根据用户的评价和入住量，为您推荐以下酒店</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                        <div class="ftco-icon mb-3"><span class="oi oi-bookmark display-4 text-muted"></span></div>
+                        {% for  hotel in hotel_datail%}
+                        <div class="media-body">
+                            <h5 class="mt-0">{{hotel.name}}</h5>
+                            <p class="mb-5">{{hotel.address}}</p>
+                            <p class="mb-0">
+                                <a href="{% url 'home:hotel_datail'  datail=hotel.name %}" class="btn btn-primary btn-sm">查看详情</a>
+                                <a href="http://api.map.baidu.com/geocoder?address={{hotel.name}}&output=html&src=webapp.baidu.openAPIdemo" class="btn btn-primary btn-sm">去这里</a>
+                            </p>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+<!-- 下部介绍栏2 -->
+{% block bottom2 %}
+
+    <section class="ftco-section ftco-slant" id="section-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">景区推荐</h2>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-7">
+                            <p class="lead">我们根据景区每日客流量和景区评价，为您推荐以下景点</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END row -->
+            <div class="row">
+                {% for foo in attractions_datail %}
+                    <div class="col-lg-4 mb-5 ftco-animate">
+                    <figure>
+                    {% for i in publicity_photo %}
+                        {% ifequal i.attractions_id foo.id %}
+                            {% ifnotequal i.upload '' %}
+                                <img src="/media/{{ i.upload }}" alt="Free Template by Free-Template.co"
+                                 class="img-fluid">
+                            {% endifnotequal %}
+                        {% endifequal %}
+
+                    {% endfor %}
+
+
+                    </figure>
+                    <p class="p-3">
+
+                        <h3 class="h4">{{ foo.name }}</h3>
+                        <p class="mb-4">{{ foo.datail }}</p>
+                        <ul class="list-unstyled ftco-list-check text-left">
+                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>价格：{{ foo.min_price }} - {{ foo.max_price }} 元</span>
+                            </li>
+                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>联系电话：{{ foo.phone }}</span>
+                            </li>
+                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>地址：{{ foo.address }}</span>
+                            </li>
+                        </ul>
+                        <p class="mb-0"><a href="{% url 'home:attractions_datail' datail=foo.name %}" class="btn btn-primary btn-sm">查看详情</a>
+                        <a href="http://api.map.baidu.com/geocoder?address={{foo.name}}&output=html&src=webapp.baidu.openAPIdemo" class="btn btn-primary btn-sm">去这里</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+    </section>
+
+
+{% endblock %}
+
+<!-- 其他功能 -->
+{% block other %}
+
+    <section class="ftco-section ftco-slant ftco-slant-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">为您合理规划旅途</h2>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-7">
+                            <p class="lead">您可根据本站推荐，制定属于您自己的出行计划</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel ftco-owl">
+
+                        <div class="item ftco-animate">
+                            <div class="media d-block text-left ftco-media p-md-5 p-4">
+                                <div class="ftco-icon mb-3"><span class="oi oi-person display-4"></span></div>
+                                <div class="media-body">
+                                    <h5 class="mt-0">旅途热闻</h5>
+                                    <p>让您的旅途不再孤单，为您推送每日最新旅途热闻，让您在旅途的闲暇之余一览全国热闻 </p>
+                                    <p><a href="#">点击查看</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item ftco-animate">
+                            <div class="media d-block text-left ftco-media p-md-5 p-4">
+                                <div class="ftco-icon mb-3"><span class="oi oi-pencil display-4"></span></div>
+                                <div class="media-body">
+                                    <h5 class="mt-0">景区流量</h5>
+                                    <p>本站根据景区流量，为景区生成专属景区流量模型图 </p>
+                                    <p><a href="#">点击查看</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item ftco-animate">
+                            <div class="media d-block text-left ftco-media p-md-5 p-4">
+                                <div class="ftco-icon mb-3"><span class="oi oi-monitor display-4"></span></div>
+                                <div class="media-body">
+                                    <h5 class="mt-0">旅游攻略</h5>
+                                    <p>您只需要输入您的目的地以及周边距离，我们将会为您推荐该范围内的景区和酒店，让您的出行更有目的性 </p>
+                                    <p><a href="#">点击查看</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item ftco-animate">
+                            <div class="media d-block text-left ftco-media p-md-5 p-4">
+                                <div class="ftco-icon mb-3"><span class="oi oi-location display-4"></span></div>
+                                <div class="media-body">
+                                    <h5 class="mt-0">订单查询</h5>
+                                    <p>快速查询您的景区门票和酒店订单，免除您的一切后顾之忧</p>
+                                    <p><a href="#">点击查看</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+<!-- 整合统计 -->
+{% block sum %}
+
+    <section class="ftco-section bg-light ftco-slant ftco-slant-white" id="section-counter">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12 text-center ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">综合统计</h2>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-7">
+                            <p class="lead">我们将向您展示我们已经添加的景区数量，酒店数量以及订单数量</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END row -->
+            <div class="row">
+                <div class="col-md ftco-animate">
+                    <div class="ftco-counter text-center">
+                        <span class="ftco-number" data-number="34146">0</span>
+                        <span class="ftco-label">景区数量</span>
+                    </div>
+                </div>
+                <div class="col-md ftco-animate">
+                    <div class="ftco-counter text-center">
+                        <span class="ftco-number" data-number="1239">0</span>
+                        <span class="ftco-label">酒店数量</span>
+                    </div>
+                </div>
+                <div class="col-md ftco-animate">
+                    <div class="ftco-counter text-center">
+                        <span class="ftco-number" data-number="124">0</span>
+                        <span class="ftco-label">订单数量</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+<!-- 关于我们 -->
+{% block about_us %}
+
+    <section class="ftco-section ftco-slant ftco-slant-light" id="section-about">
+        <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-md-12 text-center ftco-animate">
+                    <h2 class="text-uppercase ftco-uppercase">关于我们</h2>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-7">
+                            <p class="lead">我们专注于向您提供最优质的旅行建议，以给您最优质的旅行体验为基础，任何问题均可联系我们，我们诚挚的接受您的建议和反馈</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END row -->
+
+
+            <div class="row no-gutters align-items-center ftco-animate">
+                <div class="col-md-6 mb-md-0 mb-5">
+                    <img src="{% static 'index/images/bg_3.jpg' %}" alt="Free Template by Free-Template.co"
+                         class="img-fluid">
+                </div>
+                <div class="col-md-6 p-md-5">
+                    <h3 class="h3 mb-4">Far far away, behind the word mountains</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+                        a large language ocean.</p>
+                    <p class="mb-5"><a href="#">查看详情</a></p>
+                </div>
+            </div>
+            <div class="row no-gutters align-items-center ftco-animate">
+                <div class="col-md-6 order-md-3 mb-md-0 mb-5">
+                    <img src="{% static 'index/images/bg_1.jpg' %}" alt="Free Template by Free-Template.co"
+                         class="img-fluid">
+                </div>
+                <div class="col-md-6 p-md-5 order-md-1">
+                    <h3 class="h3 mb-4">Far from the countries Vokalia and Consonantia</h3>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+                        a large language ocean.</p>
+                    <p class="mb-5"><a href="#">查看详情</a></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+<!-- 联系我们 -->
+{% block connect_us %}
+
+    <section class="ftco-section bg-white ftco-slant ftco-slant-dark" id="section-contact">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md pr-md-5 mb-5">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入您的名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="text" class="form-control" id="email" placeholder="请输入您的邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea name="message" id="message" cols="30" rows="10" class="form-control"
+                                      placeholder="反馈"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="提交">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md" id="map">
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

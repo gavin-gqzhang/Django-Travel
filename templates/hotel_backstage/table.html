@@ -1,0 +1,253 @@
+﻿{% extends 'templates/hotel_backstage/base.html' %}
+
+{% block top %}
+    {{ block.super }}
+{% endblock %}
+
+<!--面包屑导航-->
+{% block navigation %}
+    <div class="header">
+        <h1 class="page-header">
+            订单详情
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'my_space:hotel_backstage' %}">后台管理</a></li>
+            <li><a href="{% url 'my_space:hotel_table' %}">酒店管理</a></li>
+            <li class="active">订单详情</li>
+        </ol>
+
+    </div>
+{% endblock %}
+
+{% block datail %}
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <!--    Striped Rows Table  -->
+                <div class="card">
+                    <div class="card-action">
+                       今日订单
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th class="center">姓名</th>
+                                    <th class="center">联系方式</th>
+                                    <th class="center">身份证号</th>
+                                    <th class="center">人数</th>
+                                    <th class="center">房型</th>
+                                    <th class="center">天数</th>
+                                    <th class="center">价格</th>
+                                    <th class="center">入住时间</th>
+                                    <th  class="center">预计到达时间</th>
+                                    <th  class="center">下单时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                      {% for foo in today_order_datail %}
+                                    <tr class="even gradeC">
+                                        <td  class="center">{{ foo.name }}</td>
+                                        <td class="center">{{ foo.phone }}</td>
+                                        <td class="center">{{ foo.id_card }}</td>
+                                        <td class="center">{{ foo.person }}</td>
+                                        {% for i in home_datail %}
+                                        {% ifequal i.id foo.home_id %}
+                                            <td class="center">{{ i.home }}</td>
+                                        {% endifequal %}
+                                        {% endfor %}
+                                        <td class="center">{{ foo.data }}</td>
+                                        <td class="center">{{ foo.price }}</td>
+                                        <td class="center">{{ foo.live_time }}</td>
+                                        <td class="center">{{ foo.come_time }}</td>
+                                        <td class="center">{{ foo.auth_time }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--  End  Striped Rows Table  -->
+            </div>
+
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
+                <div class="card">
+                    <div class="card-action">
+                        总订单
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th class="center">姓名</th>
+                                    <th class="center">联系方式</th>
+                                    <th class="center">身份证号</th>
+                                    <th class="center">人数</th>
+                                    <th class="center">房型</th>
+                                    <th class="center">天数</th>
+                                    <th class="center">价格</th>
+                                    <th class="center">入住时间</th>
+                                    <th  class="center">预计到达时间</th>
+                                    <th  class="center">下单时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for foo in hotel_order %}
+                                    <tr class="even gradeC">
+                                        <td  class="center">{{ foo.name }}</td>
+                                        <td class="center">{{ foo.phone }}</td>
+                                        <td class="center">{{ foo.id_card }}</td>
+                                        <td class="center">{{ foo.person }}</td>
+                                        {% for i in home_datail %}
+                                        {% ifequal i.id foo.home_id %}
+                                            <td class="center">{{ i.home }}</td>
+                                        {% endifequal %}
+                                        {% endfor %}
+                                        <td class="center">{{ foo.data }}</td>
+                                        <td class="center">{{ foo.price }}</td>
+                                        <td class="center">{{ foo.live_time }}</td>
+                                        <td class="center">{{ foo.come_time }}</td>
+                                        <td class="center">{{ foo.auth_time }}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!--End Advanced Tables -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-6">
+                <!--    Context Classes  -->
+                <div class="card">
+
+                    <div class="card-action">
+                        房型详情
+                    </div>
+
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="center">房型</th>
+                                    <th class="center">容纳人数</th>
+                                    <th class="center">价格</th>
+                                    <th class="center">剩余间数</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for foo in home_datail%}
+                                    <tr class="success">
+                                    <td class="center">{{ foo.home }}</td>
+                                    <td class="center">{{ foo.person_num }}</td>
+                                    <td class="center">{{ foo.price }}</td>
+                                    <td class="center">{{ foo.num }}</td>
+                                </tr>
+                                {% endfor %}
+{#                                <tr class="danger">#}
+{#                                    <td>4</td>#}
+{#                                    <td>John</td>#}
+{#                                    <td>Smith</td>#}
+{#                                    <td>@jsmith</td>#}
+{#                                </tr>#}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--    Context Classes  -->
+                <div class="card">
+
+                    <div class="card-action">
+                        收益统计
+                    </div>
+
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="center">日期</th>
+                                    <th class="center">收益金额</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="info">
+                                    <td class="center">今日收益</td>
+                                    <td class="center">{{ today_price }}</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td class="center">总收益</td>
+                                    <td class="center">{{ sum_price }}</td>
+                                </tr>
+{#                                <tr class="danger">#}
+{#                                    <td>4</td>#}
+{#                                    <td>John</td>#}
+{#                                    <td>Smith</td>#}
+{#                                    <td>@jsmith</td>#}
+{#                                </tr>#}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- End  Basic Table  -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <!--    Context Classes  -->
+                <div class="card">
+
+                    <div class="card-action">
+                        收益统计
+                    </div>
+
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="center">日期</th>
+                                    <th class="center">出售房间数</th>
+                                    <th class="center">收益金额</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for foo in date %}
+                                    <tr class="danger">
+                                    <td class="center">{{ foo }}</td>
+                                    <td class="center">{{ forloop.counter }}</td>
+                                    <td class="center">{{ forloop.counter|add:128 }} 元</td>
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- End  Basic Table  -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+    </div>
+{% endblock %}
