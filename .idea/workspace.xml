@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93b57c21-338b-4619-8c8a-f66c6988b101" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Travels.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Travels.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Travels/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Travels/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Travels/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Travels/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/FlowImg/临沂大学_line.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/FlowImg/临沂大学_line.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/new/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pay/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pay/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pay/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pay/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/attractions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/attractions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/attractions_backstage/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/attractions_backstage/table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/datail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/datail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hotel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hotel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hotel_backstage/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/hotel_backstage/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +72,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -99,7 +82,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -249,20 +232,37 @@
       <workItem from="1620824896375" duration="1565000" />
       <workItem from="1620875889418" duration="4603000" />
     </task>
+    <task id="LOCAL-00001" summary="完善相关功能，修补部分bug">
+      <created>1620892159700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620892159700</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="完善相关功能，修补部分bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善相关功能，修补部分bug" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="74" key="#Notifications" timestamp="1620876234745">
+    <state x="361" y="74" key="#Notifications" timestamp="1620892399131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="74" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1620876234745" />
+    <state x="361" y="74" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1620892399131" />
     <state x="373" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620876247646">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="373" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1620876247646" />
+    <state x="385" y="10" key="CommitChangelistDialog2" timestamp="1620892157267">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="385" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1620892157267" />
     <state x="547" y="170" key="FileChooserDialogImpl" timestamp="1620890994386">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -287,14 +287,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="212" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620826510147" />
-    <state x="227" y="24" key="SettingsEditor" timestamp="1620891013666">
+    <state x="227" y="24" key="SettingsEditor" timestamp="1620892415146">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="227" y="24" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620891013666" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1620892064025">
+    <state x="227" y="24" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620892415146" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1620892222586">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620892064025" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620892222586" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/views_py$test.coverage" NAME="test Coverage Results" MODIFIED="1620825611955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:/" />
