@@ -3,69 +3,118 @@
 
 {% block bottom1 %}
 
-    <section class="ftco-section ftco-slant" id="section-services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center ftco-animate">
-                    <h2 class="text-uppercase ftco-uppercase">所有景点</h2>
-                    <div class="row justify-content-center mb-5">
-                        <div class="col-md-7">
-                            <p class="lead">全国所有景点尽收眼底</p>
-                        </div>
+<section class="ftco-section ftco-slant" id="section-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center ftco-animate">
+                <h2 class="text-uppercase ftco-uppercase">所有景点</h2>
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-7">
+                        <p class="lead">全国所有景点尽收眼底</p>
                     </div>
                 </div>
             </div>
-            <!-- END row -->
-            <div class="row">
-{#                <div class="col-lg-4 mb-5 ftco-animate">#}
-{#                    <figure><img src="{% static 'index/images/img_2.jpg' %}" alt="Free Template by Free-Template.co"#}
-{#                                 class="img-fluid"></figure>#}
-{#                    <div class="p-3">#}
-{#                        <h3 class="h4">Title of Service here</h3>#}
-{#                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                            Consonantia, there live the blind texts.</p>#}
-{#                        <ul class="list-unstyled ftco-list-check text-left">#}
-{#                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>Free template for designer and developers</span>#}
-{#                            </li>#}
-{#                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>Vokalia and consonantia blind texts</span>#}
-{#                            </li>#}
-{#                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>Behind the word mountains blind texts</span>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-                {% for foo in attractions_datail %}
-                    <div class="col-lg-4 mb-5 ftco-animate">
-                    <figure>
+        </div>
+        <!-- END row -->
+        <div class="row">
+            {% for foo in attractions_datail %}
+            <div class="col-lg-4 mb-5 ftco-animate">
+                <figure>
                     {% for i in publicity_photo %}
-                        {% ifequal i.attractions_id foo.id %}
-                            {% ifnotequal i.upload '' %}
-                                <img src="/media/{{ i.upload }}" alt="Free Template by Free-Template.co"
-                                 class="img-fluid">
-                            {% endifnotequal %}
-                        {% endifequal %}
+                    {% ifequal i.attractions_id foo.id %}
+                    {% ifnotequal i.upload '' %}
+                    <img height="300px" width="300px" src="/media/{{ i.upload }}"
+                         alt="Free Template by Free-Template.co"
+                         class="img-fluid">
+                    {% endifnotequal %}
+                    {% endifequal %}
                     {% endfor %}
 
 
-                    </figure>
-                    <p class="p-3">
+                </figure>
+                <p class="p-3">
 
-                        <h3 class="h4">{{ foo.name }}</h3>
-                        <p class="mb-4">{{ foo.datail }}</p>
-                        <ul class="list-unstyled ftco-list-check text-left">
-                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>价格：{{ foo.min_price }} - {{ foo.max_price }} 元</span>
-                            </li>
-                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>联系电话：{{ foo.phone }}</span>
-                            </li>
-                            <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>地址：{{ foo.address }}</span>
-                            </li>
-                        </ul>
-                        <p class="mb-0"><a href="{% url 'home:attractions_datail' datail=foo.name %}" class="btn btn-primary btn-sm">查看详情</a>
-                        <a href="http://api.map.baidu.com/geocoder?address={{foo.name}}&output=html&src=webapp.baidu.openAPIdemo" class="btn btn-primary btn-sm">去这里</a></p>
-                    </div>
-                </div>
-                {% endfor %}
+                <h3 class="h4">{{ foo.name }}</h3>
+                <p class="mb-4">{{ foo.datail }}</p>
+                <ul class="list-unstyled ftco-list-check text-left">
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>价格：{{ foo.min_price }} - {{ foo.max_price }} 元</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>联系电话：{{ foo.phone }}</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>地址：{{ foo.address }}</span>
+                    </li>
+                </ul>
+                <p class="mb-0"><a href="{% url 'home:attractions_datail' datail=foo.name %}"
+                                   class="btn btn-primary btn-sm">查看详情</a>
+                    <a href="http://api.map.baidu.com/geocoder?address={{foo.name}}&output=html&src=webapp.baidu.openAPIdemo"
+                       class="btn btn-primary btn-sm">去这里</a></p>
             </div>
-    </section>
+            <div class="col-lg-4 mb-5 ftco-animate">
+                <figure>
+                    {% for i in publicity_photo %}
+                    {% ifequal i.attractions_id foo.id %}
+                    {% ifnotequal i.upload '' %}
+                    <img height="300px" width="300px" src="/media/{{ i.upload }}"
+                         alt="Free Template by Free-Template.co"
+                         class="img-fluid">
+                    {% endifnotequal %}
+                    {% endifequal %}
+                    {% endfor %}
+
+
+                </figure>
+                <p class="p-3">
+
+                <h3 class="h4">{{ foo.name }}</h3>
+                <p class="mb-4">{{ foo.datail }}</p>
+                <ul class="list-unstyled ftco-list-check text-left">
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>价格：{{ foo.min_price }} - {{ foo.max_price }} 元</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>联系电话：{{ foo.phone }}</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>地址：{{ foo.address }}</span>
+                    </li>
+                </ul>
+                <p class="mb-0"><a href="{% url 'home:attractions_datail' datail=foo.name %}"
+                                   class="btn btn-primary btn-sm">查看详情</a>
+                    <a href="http://api.map.baidu.com/geocoder?address={{foo.name}}&output=html&src=webapp.baidu.openAPIdemo"
+                       class="btn btn-primary btn-sm">去这里</a></p>
+            </div>
+            <div class="col-lg-4 mb-5 ftco-animate">
+                <figure>
+                    {% for i in publicity_photo %}
+                    {% ifequal i.attractions_id foo.id %}
+                    {% ifnotequal i.upload '' %}
+                    <img height="300px" width="300px" src="/media/{{ i.upload }}"
+                         alt="Free Template by Free-Template.co"
+                         class="img-fluid">
+                    {% endifnotequal %}
+                    {% endifequal %}
+                    {% endfor %}
+
+
+                </figure>
+                <p class="p-3">
+
+                <h3 class="h4">{{ foo.name }}</h3>
+                <p class="mb-4">{{ foo.datail }}</p>
+                <ul class="list-unstyled ftco-list-check text-left">
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>价格：{{ foo.min_price }} - {{ foo.max_price }} 元</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>联系电话：{{ foo.phone }}</span>
+                    </li>
+                    <li class="d-flex mb-2"><span class="oi oi-check mr-3 text-primary"></span> <span>地址：{{ foo.address }}</span>
+                    </li>
+                </ul>
+                <p class="mb-0"><a href="{% url 'home:attractions_datail' datail=foo.name %}"
+                                   class="btn btn-primary btn-sm">查看详情</a>
+                    <a href="http://api.map.baidu.com/geocoder?address={{foo.name}}&output=html&src=webapp.baidu.openAPIdemo"
+                       class="btn btn-primary btn-sm">去这里</a></p>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}

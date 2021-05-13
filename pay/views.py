@@ -23,7 +23,7 @@ def get_time():
     times=[]
     times.append(datetime(year=int(year),month=int(mouth),day=int(day)).strftime('%Y-%m-%d'))
     for i in range(1,8):
-        if int(day)+1>int(calendar.monthrange(int(year),int(mouth))[1]) and mouth+1!=13:
+        if int(day)+1>int(calendar.monthrange(int(year),int(mouth))[1]) and int(mouth)+1!=13:
             day=1
             mouth=int(mouth)+1
             now=datetime(year=int(year),month=mouth,day=day)
@@ -192,7 +192,11 @@ def get_attraction(request):
     price=re.findall('\d*.\d*元',price)[0]
     price=(price[:-1])
     attraction_price=AttractionsPrice.objects.get(name_id=attraction_id,ticket_price=price)
-    attraction_price.num=int(attraction_price.num)+int(num)
+    if attraction_price.num == None:
+        attraction_price_num=0
+    else:
+        attraction_price_num=int(attraction_price.num)
+    attraction_price.num=int(attraction_price_num)+int(num)
     attraction_price.save()
     order=AttractionsOrder(
         attractions_id=attraction_id,
@@ -216,10 +220,10 @@ def get_attraction(request):
 
 def mail(name,auth_time,use_time,use_name,num,price):
     host_server='smtp.qq.com'
-    sender_qq='2230685848'
-    pwd='gzxaermzydgdecbj'
-    send_mail = '2230685848@qq.com'
-    receivers = '2230685848@qq.com'  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+    sender_qq='897677495'
+    pwd='dokwzkobbttbbbcd'
+    send_mail = '897677495@qq.com'
+    receivers = '897677495@qq.com'  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
     mail_content="""
     <p>预订订单成功</p>

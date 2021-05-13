@@ -48,6 +48,8 @@ def raiders_search(request):
 def get_hotel(request,distination,distance):
     ctx={}
     hotels=[]
+    print(distination)
+    print(distance)
     hotel_datail=HotelDatail.objects.all()
     ctx['lng1']=address(distination)['lng']
     ctx['lat1']=address(distination)['lat']
@@ -247,6 +249,8 @@ def hotel_table(request):
             today=('{}-{}-{}').format(year,mouth,i)
             date.append(today)
 
+        print(date)
+
         context={
             'username':username,
             'sum_order':len_order,
@@ -289,10 +293,24 @@ def hotel_infor(request):
         datail = request.POST['editor1']
         home_name = request.POST.getlist('home')
         home_price = request.POST.getlist('price')
-        home_img = request.FILES.getlist('img')
+        home_details = request.POST.getlist('home_detail')
+        home_img=request.FILES.getlist('img')
         person = request.POST.getlist('person')
         num = request.POST.getlist('num')
         publicity_photo = request.FILES.get('Publicity_photo')
+
+        try:
+            min_price=float(min_price)
+        except:
+            min_price=0.0
+        try:
+            max_price=float(max_price)
+        except:
+            max_price=0.0
+        try:
+            home_num=int(home_num)
+        except:
+            home_num=0
 
     # 信息存储数据库中
     user = request.session.get('username')
@@ -330,50 +348,73 @@ def hotel_infor(request):
         auth_user.save()
 
     #   图片存储
-    for i in range(0, len(home_img)):
-        if img[i] != '':
-            path = os.path.join(settings.MEDIA_ROOT, 'hotel', hotel_name, home_name[i])
-            if not os.path.exists(path):
-                os.makedirs(path)
-            url = os.path.join(path, home_img[i].name)
-            with open(url, 'wb') as save_file:
-                for part in home_img[i].chunks():
-                    save_file.write(part)
-                    save_file.flush()
-            if HomeDatail.objects.filter(home=home_name[i]):
-                refresh = HomeDatail.objects.get(home=home_name[i])
-                refresh.hotel_id = hotel_id,
-                refresh.home = home_name[i],
-                refresh.person_num = person[i],
-                refresh.price = home_price,
-                refresh.num = num[i]
-                refresh.save()
-                home_id = refresh.id
-                hotel_img = HotelImg.objects.get(hotel_id=hotel_id)
-                hotel_img.home_id = home_id,
-                hotel_img.img = os.path.join(
-                    'hotel', hotel_name, home_name[i], home_img[i].name
-                )
-            else:
-                home_datail = HomeDatail(
-                    hotel_id=hotel_id,
-                    home=home_name[i],
-                    person_num=person[i],
-                    price=home_price[i],
-                    num=num[i]
-                )
-                home_datail.save()
-                home_id = home_datail.id
-                hotel_img = HotelImg(
-                    hotel_id=hotel_id,
-                    home_id=home_id,
-                    img=os.path.join(
+    for i in range(len(home_name)):
+        if len(home_img)!=0:
+            if home_img[i]!="":
+                path = os.path.join(settings.MEDIA_ROOT, 'hotel', hotel_name, home_name[i])
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                url = os.path.join(path, home_img[i].name)
+                with open(url, 'wb') as save_file:
+                    for part in home_img[i].chunks():
+                        save_file.write(part)
+                        save_file.flush()
+                if HomeDatail.objects.filter(home=home_name[i]):
+                    refresh = HomeDatail.objects.get(home=home_name[i])
+                    refresh.hotel_id = hotel_id
+                    refresh.home = home_name[i]
+                    refresh.person_num = person[i]
+                    refresh.price = home_price
+                    refresh.num = num[i]
+                    refresh.datail = home_details[i]
+                    refresh.save()
+                    home_id = refresh.id
+                    hotel_img = HotelImg.objects.get(hotel_id=hotel_id)
+                    hotel_img.home_id = home_id,
+                    hotel_img.img = os.path.join(
                         'hotel', hotel_name, home_name[i], home_img[i].name
                     )
-                )
+                else:
+                    home_datail = HomeDatail(
+                        hotel_id=hotel_id,
+                        home=home_name[i],
+                        person_num=person[i],
+                        price=home_price[i],
+                        num=num[i],
+                        datail=home_details[i],
+                    )
+                    home_datail.save()
+                    home_id = home_datail.id
+                    hotel_img = HotelImg(
+                        hotel_id=hotel_id,
+                        home_id=home_id,
+                        img=os.path.join(
+                            'hotel', hotel_name, home_name[i], home_img[i].name
+                        )
+                    )
         else:
-            pass
-
+            if home_name[i]!="" and person[i]!="" and num[i]!="" and home_price[i]!="":
+                if HomeDatail.objects.filter(home=home_name[i]):
+                    refresh = HomeDatail.objects.get(home=home_name[i])
+                    refresh.hotel_id = hotel_id
+                    refresh.home = home_name[i]
+                    refresh.person_num = person[i]
+                    refresh.price = home_price[i]
+                    refresh.num = num[i]
+                    refresh.datail = home_details[i]
+                    refresh.save()
+                else:
+                    home_datail = HomeDatail(
+                        hotel_id=hotel_id,
+                        home=home_name[i],
+                        person_num=person[i],
+                        price=home_price[i],
+                        num=num[i],
+                        datail=home_details[i],
+                    )
+                    home_datail.save()
+            else:
+                pass
     # 宣传照存储
     if publicity_photo != None:
         path = os.path.join(settings.MEDIA_ROOT, 'hotel', hotel_name, 'publicity_photo')
@@ -401,7 +442,7 @@ def hotel_infor(request):
     else:
         pass
 
-    return redirect(reverse('my_space:hotel_backstage'))
+    return redirect(reverse('my_space:hotel_backstage'))# 127.0.0.1:8000/my_space/hotel_backstage
 
 
 # 景区后台首页
@@ -423,7 +464,6 @@ def attractions_index(request):
             if str(time) == str(now):
                 today_price=today_price+order.price
                 today_order = today_order + 1
-
         attractions_datatil=AttractionsDatail.objects.get(id=attractions_id)
         attractions_price=AttractionsPrice.objects.filter(name_id=attractions_id)
 
@@ -489,7 +529,17 @@ def attractions_form(request):
                 today_order = today_order + 1
         attractions_datail=AttractionsDatail.objects.get(id=attractions_id)
 
-        flow=Flow.objects.get(name_id=attractions_id)
+        try:
+            flow = Flow.objects.get(name_id=attractions_id)
+        except:
+            flow={
+                'time1_flow':'',
+                'time2_flow':'',
+                'time3_flow':'',
+                'time4_flow':'',
+                'time5_flow':'',
+                'time6_flow':'',
+            }
 
         context = {
             'username': username,
@@ -533,13 +583,14 @@ def attractions_table(request):
         # 获取当前月以及天数
         year = timezone.localdate().strftime('%Y')
         mouth = timezone.localdate().strftime('%m')
-        day = calendar.monthrange(int(year), int(mouth))[1]
+        day=timezone.localdate().strftime('%d')
+        # day = calendar.monthrange(int(year), int(mouth))[1]
 
         date = []
-        for i in range(1, day + 1):
+        for i in range(1, int(day) + 1):
             today = ('{}-{}-{}').format(year, mouth, i)
             date.append(today)
-
+        print(date)
         context = {
             'attraction_price':attractions_price,
             'attraction_datail':attractions_datail,
@@ -591,6 +642,42 @@ def attractions_infor(request):
         time4=request.POST['time4']
         time5=request.POST['time5']
         time6=request.POST['time6']
+        try:
+            max_num=int(max_num)
+        except:
+            max_num=100
+        try:
+            max_price=float(max_price)
+        except:
+            max_price=0
+        try:
+            min_price=float(min_price)
+        except:
+            min_price=0
+        try:
+            time1=float(time1)
+        except:
+            time1=0.0
+        try:
+            time2 = float(time2)
+        except:
+            time2 = 0.0
+        try:
+            time3 = float(time3)
+        except:
+            time3 = 0.0
+        try:
+            time4 = float(time4)
+        except:
+            time4 = 0.0
+        try:
+            time5 = float(time5)
+        except:
+            time5 = 0.0
+        try:
+            time6 = float(time6)
+        except:
+            time6 = 0.0
 
     #生成流量图
     times=[time1,time2,time3,time4,time5,time6]
@@ -614,19 +701,8 @@ def attractions_infor(request):
         attractions_datail.type = type
         attractions_datail.in_time = in_time
         attractions_datail.save()
-
-        flow=Flow.objects.get(name_id=attractions_id)
-        flow.time1_flow=time1
-        flow.time2_flow=time2
-        flow.time3_flow=time3
-        flow.time4_flow=time4
-        flow.time5_flow=time5
-        flow.time6_flow=time6
-        flow.max=max_num
-        flow.flow_img=url
-        flow.save()
-
-    except BaseException:
+    except:
+        print("景区详情信息修改出现异常")
         attractions_datail = AttractionsDatail(
             name=attractions_name,
             manager=username,
@@ -641,6 +717,25 @@ def attractions_infor(request):
             in_time=in_time
         )
         attractions_datail.save()
+        attractions_id = attractions_datail.id
+        auth_user = AuthUser.objects.get(username=user)
+        auth_user.attractions_user = attractions_id
+        auth_user.save()
+
+    try:
+        flow=Flow.objects.get(name_id=attractions_id)
+        flow.time1_flow=time1
+        flow.time2_flow=time2
+        flow.time3_flow=time3
+        flow.time4_flow=time4
+        flow.time5_flow=time5
+        flow.time6_flow=time6
+        flow.max=max_num
+        flow.flow_img=url
+        flow.save()
+
+    except:
+        print("流量数据信息修改出现异常")
         flow=Flow(
             name_id=attractions_datail.id,
             time1_flow=time1,
@@ -653,10 +748,7 @@ def attractions_infor(request):
             flow_img=url,
         )
         flow.save()
-        attractions_id = attractions_datail.id
-        auth_user = AuthUser.objects.get(username=user)
-        auth_user.attractions_user = attractions_id
-        auth_user.save()
+
 
 
     for i in range(0, len(ticket_name)):
@@ -734,7 +826,10 @@ def flow_index_line(names, y,max, title):
     plt.cla()
     matplotlib.rcParams['font.sans-serif'] = ['SimHei']
     for i in range(len(y)):
-        y[i]=float(y[i])
+        try:
+            y[i] = float(y[i])
+        except:
+            y[i]=0
     plt.plot(x, y, marker='o', mec='r', mfc='w', label=u'flow')
     plt.legend()  # 让图例生效
     plt.xticks(x, names, rotation=45)
@@ -767,33 +862,23 @@ def flow_index(names,y,max,title):
 
 #    两点键位置信息具体测定   #
 EARTH_RADIUS = 6371  # 地球平均半径，6371km
-
-
-# Create your views here.
 #      对输入的两个经纬度信息进行测距   #
 def hav(theta):
     s = sin(theta / 2)
     return s * s
-
-
 def get_distance_hav(lat0, lng0, lat1, lng1):
     "用haversine公式计算球面两点间的距离。"
     # 经纬度转换成弧度
-
     lat0 = radians(lat0)
     lat1 = radians(lat1)
     lng0 = radians(lng0)
     lng1 = radians(lng1)
-
     dlng = fabs(lng0 - lng1)
     dlat = fabs(lat0 - lat1)
     h = hav(dlat) + cos(lat0) * cos(lat1) * hav(dlng)
     distance = 2 * EARTH_RADIUS * asin(sqrt(h))
     return distance
-
-
 #     获取详细地址的经纬度信息函数        #
-
 def address(address):
     address_index = {}
     queryStr = '/geocoder/v2/?address=%s&output=json&ak=leDOPGBU5Gwk6D3wGZigrNk560zN50GX' % address
@@ -804,7 +889,7 @@ def address(address):
     res = requests.get(url)
     json_data = json.loads(res.text)
     longitude = json_data['result']['location']['lng']  # 经度
-    latitude = json_data['result']['location']['lat']  # 维度
+    latitude = json_data['result']['location']['lat']  # 纬度
     address_index['lng'] = longitude
     address_index['lat'] = latitude
     return address_index  # 返回携带具体经纬度信息的字典

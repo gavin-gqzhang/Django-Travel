@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import AttractionsDatail,AttractionsPrice,Flow,HomeDatail,HotelDatail,News,HotelOrder,AttractionsOrder
-#
+#数据库后台
 # # 后台一对多编辑
 # class hotel_editor(admin.StackedInline):
 #     model = HomeDatail

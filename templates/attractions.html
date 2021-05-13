@@ -4,93 +4,38 @@
 
 {% block bottom1 %}
 
-    <section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="section-features">
-        <div class="container">
+<section class="ftco-section bg-light  ftco-slant ftco-slant-white" id="section-features">
+    <div class="container">
 
-            <div class="row">
-                <div class="col-md-12 text-center mb-5 ftco-animate">
-                    <h2 class="text-uppercase ftco-uppercase">所有酒店</h2>
-                    <div class="row justify-content-center">
-                        <div class="col-md-7">
-                            <p class="lead">全国所有酒店尽收眼底</p>
-                        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mb-5 ftco-animate">
+                <h2 class="text-uppercase ftco-uppercase">所有酒店</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+                        <p class="lead">全国所有酒店尽收眼底</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
-                        <div class="ftco-icon mb-3"><span class="oi oi-bookmark display-4 text-muted"></span></div>
-                        {% for  hotel in hotel_datail%}
-                        <div class="media-body">
-                            <h5 class="mt-0">{{hotel.name}}</h5>
-                            <p class="mb-5">{{hotel.address}}</p>
-                            <p class="mb-0">
-                                <a href="{% url 'home:hotel_datail'  datail=hotel.name %}" class="btn btn-primary btn-sm">查看详情</a>
-                                <a href="http://api.map.baidu.com/geocoder?address={{hotel.name}}&output=html&src=webapp.baidu.openAPIdemo" class="btn btn-primary btn-sm">去这里</a>
-                            </p>
-
-                        </div>
-                        {% endfor %}
-                    </div>
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">#}
-{#                        <div class="ftco-icon mb-3"><span class="oi oi-bolt display-4 text-muted"></span></div>#}
-{#                        <div class="media-body">#}
-{#                            <h5 class="mt-0">Fast Loading</h5>#}
-{#                            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                                Consonantia, there live the blind texts.</p>#}
-{#                            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">#}
-{#                        <div class="ftco-icon mb-3"><span class="oi oi-person display-4 text-muted"></span></div>#}
-{#                        <div class="media-body">#}
-{#                            <h5 class="mt-0">Designer &amp; Developer</h5>#}
-{#                            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                                Consonantia, there live the blind texts.</p>#}
-{#                            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">#}
-{#                        <div class="ftco-icon mb-3"><span class="oi oi-code display-4 text-muted"></span></div>#}
-{#                        <div class="media-body">#}
-{#                            <h5 class="mt-0">Clean Code</h5>#}
-{#                            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                                Consonantia, there live the blind texts.</p>#}
-{#                            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">#}
-{#                        <div class="ftco-icon mb-3"><span class="oi oi-magnifying-glass display-4 text-muted"></span>#}
-{#                        </div>#}
-{#                        <div class="media-body">#}
-{#                            <h5 class="mt-0">Search Engine</h5>#}
-{#                            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                                Consonantia, there live the blind texts.</p>#}
-{#                            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-4 col-md-6">#}
-{#                    <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">#}
-{#                        <div class="ftco-icon mb-3"><span class="oi oi-phone display-4 text-muted"></span></div>#}
-{#                        <div class="media-body">#}
-{#                            <h5 class="mt-0">Fully Responsive</h5>#}
-{#                            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and#}
-{#                                Consonantia, there live the blind texts.</p>#}
-{#                            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">Learn More</a></p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
             </div>
+            {% for hotel in hotel_datail%}
+            <div class="col-lg-4 col-md-6">
+                <div class="media d-block mb-4 text-center ftco-media p-md-5 p-4 ftco-animate">
+                    <div class="ftco-icon mb-3"><span class="oi oi-bookmark display-4 text-muted"></span></div>
+
+                    <div class="media-body">
+                        <h5 class="mt-0">{{hotel.name}}</h5>
+                        <p class="mb-5">{{hotel.address}}</p>
+                        <p class="mb-0">
+                            <a href="{% url 'home:hotel_datail'  datail=hotel.name %}" class="btn btn-primary btn-sm">查看详情</a>
+                            <a href="http://api.map.baidu.com/geocoder?address={{hotel.address}}&output=html&src=webapp.baidu.openAPIdemo"
+                               class="btn btn-primary btn-sm">去这里</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        </div>
-    </section>
+    </div>
+</section>
 
 {% endblock %}

@@ -24,9 +24,9 @@ SECRET_KEY = '#t!l@x)o39w$_&^at*sjn3$p#@mak!pl)uj%%d@r0vb=#a#evn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-# Application definition
+# 1.Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+#2.前端模板，HTML文件，索引templates,根目录
 ROOT_URLCONF = 'Travels.urls'
 
 TEMPLATES = [
@@ -73,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Travels.wsgi.application'
 
-# Database
+# 3.Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+#4加密
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.Argon2PasswordHasher',
 )
@@ -124,14 +124,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+# 5.静态文件的目录
 STATIC_URL = '/static/'
-# 定义静态路径
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-# 定义富文本中上传路径
+# 6.定义富文本中上传路径(p4)
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -140,7 +140,7 @@ CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.j
 
 FONT_PATH='/static/Font/'
 
-# session过期时间
+# 7.session过期时间
 SESSION_COOKIE_AGE=60*30                # session失效时间
 SESSION_SAVE_EVERY_REQUEST=True
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True    # 关闭浏览器，删除session

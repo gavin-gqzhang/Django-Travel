@@ -11,14 +11,14 @@ from django.contrib.auth.hashers import make_password,check_password
 from index.models import *
 import hashlib
 import re
-
+import os
 # Create your views here.
 
 '''
     功能性方法
 '''
 def get_img():
-    f=open('E:\python-web\Travels\static\index\css\open-iconic-bootstrap.min.css','a+')
+    f=open('E:\python-web\Django-Travel\static\index\css\open-iconic-bootstrap.min.css','a+')
     f.seek(0)
     for i in f:
         img=i
@@ -75,7 +75,6 @@ def attractions(request):
             hotel_user = 1
     else:
         login = None
-
     # 携带数据传输
     context = {
         'hotel_datail': HotelDatail.objects.all(),
@@ -389,7 +388,7 @@ def attractions_inspect(request):
     attraction.save()
     attraction_id=attraction.id
     auth_user = AuthUser(username=username,password=password, user_id=user_id, is_superuser=0,
-                         is_staff=0, attractions_user=attraction_id, last_login=timezone.now(),
+                         is_staff=0,hotel_user=0, attractions_user=attraction_id, last_login=timezone.now(),
                          date_joined=timezone.now())
     auth_user.save()
     return redirect(reverse('home:login'))
@@ -424,7 +423,7 @@ def hotel_inspect(request):
     hotels.save()
     hotel_id=hotels.id
     auth_user = AuthUser(username=username,password=password, user_id=user_id, is_superuser=0,
-                         is_staff=0, hotel_user=hotel_id, last_login=timezone.now(),
+                         is_staff=0, hotel_user=hotel_id,attractions_user=0, last_login=timezone.now(),
                          date_joined=timezone.now())
     auth_user.save()
 
@@ -433,7 +432,17 @@ def hotel_inspect(request):
 # 详细信息渲染
 def attractions_datail(request,datail):
     attraction_datail = AttractionsDatail.objects.get(name=datail)
-    flow = Flow.objects.get(name_id=attraction_datail.id)
+    try:
+        flow = Flow.objects.get(name_id=attraction_datail.id)
+    except:
+        flow = {
+            'time1_flow': '',
+            'time2_flow': '',
+            'time3_flow': '',
+            'time4_flow': '',
+            'time5_flow': '',
+            'time6_flow': '',
+        }
     price = AttractionsPrice.objects.filter(name_id=attraction_datail.id)
     attraction_img = AttractionsImg.objects.filter(attractions_id=attraction_datail.id)
     if len(attraction_img)==0:
